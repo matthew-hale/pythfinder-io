@@ -7,7 +7,3 @@ function getName() {
         $('#character-name').text(data.data.name);
     });
 }
-
-function saveName() {
-    var name = $('#name').val();
-}

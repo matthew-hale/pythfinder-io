@@ -5,9 +5,17 @@
         <script src="test.js"></script>
     </head>
     <body>
-        <p id="character-name">The Update button will replace this text with the stored character sheet name; type a new name into the text box and click "Save" to change it server-side.</p>
-        <textarea type="text" id="name"></textarea>
+        <p id="character-name">The Update button will replace this text with the stored character sheet name.</p>
         <button type="button" onclick="getName()">Update</button>
-        <button type="button" onclick="saveCharacter()">Save</button>
+        <script>
+            $(function () {
+                $.ajaxSetup({
+                    crossDomain: true,
+                    xhrFields: {
+                        withCredentials: true
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
