@@ -7,3 +7,44 @@ function getName() {
         $('#character-name').text(data.data.name);
     });
 }
+
+function setCharacter() {
+    var url = "http://localhost:5000/api/v0/set_character";
+    var input = $("#character-data").val();
+    json_input = JSON.parse(input)
+    $.ajax({
+        url: url,
+        type: "PUT",
+        data: json_input,
+        contentType: "application/json"
+    }).then(function() {
+        updateCharacter();
+    });
+}
+
+function updateCharacter() {
+    var url = "http://localhost:5000/api/v0/character";
+
+    $.ajax({
+        url: url
+    }).then(function(data) {
+        console.log(data);
+        console.log(data.data);
+        $('#character-data').val(JSON.stringify(data.data, null, 4));
+    });
+}
+
+function setName() {
+    var url = "http://localhost:5000/api/v0/character/name";
+    json_input = {
+        name: "test name"
+    }
+    $.ajax({
+        url: url,
+        type: "PUT",
+        data: json_input,
+        contentType: "application/json"
+    }).then(function() {
+        updateCharacter();
+    });
+}

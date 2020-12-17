@@ -7,6 +7,9 @@
     <body>
         <p id="character-name">The Update button will replace this text with the stored character sheet name.</p>
         <button type="button" onclick="getName()">Update</button>
+        <textarea id="character-data" rows = 150 cols = 120>text</textarea>
+        <button type="button" onclick="setCharacter()">Update</button>
+        <button type="button" onclick="setName()">setName</button>
         <script>
             $(function () {
                 $.ajaxSetup({
@@ -16,6 +19,9 @@
                     }
                 });
             });
+            window.onload = function() {
+                updateCharacter();
+            };
         </script>
     </body>
 </html>
