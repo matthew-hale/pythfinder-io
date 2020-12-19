@@ -15,8 +15,9 @@ function setCharacter() {
     $.ajax({
         url: url,
         type: "PUT",
-        data: json_input,
-        contentType: "application/json"
+        data: JSON.stringify(json_input),
+        contentType: "application/json;charset=utf-8",
+        dataType: "json"
     }).then(function() {
         updateCharacter();
     });
@@ -28,8 +29,6 @@ function updateCharacter() {
     $.ajax({
         url: url
     }).then(function(data) {
-        console.log(data);
-        console.log(data.data);
         $('#character-data').val(JSON.stringify(data.data, null, 4));
     });
 }
