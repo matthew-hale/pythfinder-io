@@ -11,7 +11,7 @@ function getName() {
 function setCharacter() {
     var url = "http://localhost:5000/api/v0/set_character";
     var input = $("#character-data").val();
-    json_input = JSON.parse(input)
+    var json_input = JSON.parse(input);
     $.ajax({
         url: url,
         type: "PUT",
@@ -35,14 +35,15 @@ function updateCharacter() {
 
 function setName() {
     var url = "http://localhost:5000/api/v0/character/name";
-    json_input = {
+    var json_input = {
         name: "test name"
-    }
+    };
     $.ajax({
         url: url,
         type: "PUT",
-        data: json_input,
-        contentType: "application/json"
+        data: JSON.stringify(json_input),
+        contentType: "application/json;charset=utf-8",
+        dataType: "json"
     }).then(function() {
         updateCharacter();
     });
