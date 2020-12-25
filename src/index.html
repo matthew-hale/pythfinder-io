@@ -2,9 +2,11 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="test.js"></script>
+        <script src="index.js"></script>
     </head>
     <body>
+        <p id="character-name"></p>
+        <p id="character-data"></p>
         <script>
             $(function () {
                 $.ajaxSetup({
@@ -18,7 +20,5 @@
                 updateCharacter();
             };
         </script>
-
-        <div id="react_component"></div>
     </body>
 </html>

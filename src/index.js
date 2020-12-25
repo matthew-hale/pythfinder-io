@@ -26,10 +26,11 @@ function setCharacter() {
 function updateCharacter() {
     var url = "http://localhost:5000/api/v0/character";
 
+    getName();
     $.ajax({
         url: url
     }).then(function(data) {
-        $('#character-data').val(JSON.stringify(data.data, null, 4));
+        $('#character-data').text(JSON.stringify(data.data, null, 4));
     });
 }
 
