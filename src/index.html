@@ -2,11 +2,13 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="index.js"></script>
+        <script src="https://unpkg.com/vue@next"></script>
     </head>
     <body>
-        <p id="character-name"></p>
-        <p id="character-data"></p>
+        <div id="sheet">
+            <h1>{{ name }}</h1>
+            <h2>{{alignment}} {{ race }} {{ cclass }}</h2>
+        </div>
         <script>
             $(function () {
                 $.ajaxSetup({
@@ -16,9 +18,7 @@
                     }
                 });
             });
-            window.onload = function() {
-                updateCharacter();
-            };
         </script>
+        <script src="index.js"></script>
     </body>
 </html>
