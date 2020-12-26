@@ -1,12 +1,28 @@
-const sheet = Vue.createApp({
+const name = Vue.createApp({
     data() {
         return {
             name: 'John Q Sample',
             race: 'human',
             alignment: 'LE',
-            cclass: 'fighter'
+        }
+    }
+})
+name.mount('#name')
+
+const classes = Vue.createApp({
+    data() {
+        return {
+            classList: [
+                {name: "fighter", level: 5},
+                {name: "wizard", level: 2}
+            ]
         }
     }
 })
 
-sheet.mount('#sheet')
+classes.component('class-list', {
+    props: ['characterclass'],
+    template: `<li>lvl {{ characterclass.level }} {{ characterclass.name }}</li>`
+})
+
+classes.mount('#classes')

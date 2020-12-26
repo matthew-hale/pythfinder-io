@@ -5,9 +5,15 @@
         <script src="https://unpkg.com/vue@next"></script>
     </head>
     <body>
-        <div id="sheet">
+        <div id="name">
             <h1>{{ name }}</h1>
-            <h2>{{alignment}} {{ race }} {{ cclass }}</h2>
+            <h2>{{alignment}} {{ race }}</h2>
+        </div>
+        <div id="classes">
+            <class-list
+                v-for="item in classList"
+                v-bind:characterclass="item"
+            ></class-list>
         </div>
         <script>
             $(function () {
