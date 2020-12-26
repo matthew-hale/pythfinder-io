@@ -12,7 +12,7 @@ const sheet = Vue.createApp({
 
 sheet.component('character_classes', {
     props: ['class_entry'],
-    template: `<li>lvl {{class_entry.level}} {{ class_entry.name }}</li>`
+    template: `<li class="character_class">lvl {{class_entry.level}} {{ class_entry.name }}</li>`
 })
 
 const CharacterSheet = sheet.mount('#sheet')
