@@ -6,15 +6,13 @@
     <title>Vue > React</title>
     </head>
     <body>
-        <div id="name">
+        <div id="sheet">
             <h1>{{ name }}</h1>
             <h2>{{alignment}} {{ race }}</h2>
-        </div>
-        <div id="classes">
-            <class-list
-                v-for="item in classList"
-                v-bind:characterclass="item"
-            ></class-list>
+            <character_classes
+                v-for="item in character_classes"
+                v-bind:class_entry="item"
+            ></character_classes>
         </div>
         <script>
             $(function () {

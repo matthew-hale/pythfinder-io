@@ -1,57 +1,41 @@
-const name = Vue.createApp({
+const sheet = Vue.createApp({
     data() {
         return {
             name: '',
             race: '',
             alignment: '',
-        }
-    }
-})
-const mountedName = name.mount('#name')
-
-const classes = Vue.createApp({
-    data() {
-        return {
-            classList: [
-            ]
+            character_classes: []
         }
     }
 })
 
-classes.component('class-list', {
-    props: ['characterclass'],
-    template: `<li>lvl {{ characterclass.level }} {{ characterclass.name }}</li>`
+
+sheet.component('character_classes', {
+    props: ['class_entry'],
+    template: `<li>lvl {{class_entry.level}} {{ class_entry.name }}</li>`
 })
 
-mountedClasses = classes.mount('#classes')
+const CharacterSheet = sheet.mount('#sheet')
 
-function updateCharacter() {
+function getName() {
     var name_url = 'http://localhost:5000/api/v0/character/name';
-    var alignment_url = 'http://localhost:5000/api/v0/character/alignment';
-    var race_url = 'http://localhost:5000/api/v0/character/race';
-    var classes_url = 'http://localhost:5000/api/v0/character/classes';
 
     $.ajax({
         url: name_url
     }).then(function(data) {
-        mountedName.name = data.data.name;
+        CharacterSheet.name = data.data.name;
     });
+}
+
+function updateCharacter() {
+    var url = 'http://localhost:5000/api/v0/character'
 
     $.ajax({
-        url: alignment_url
+        url: url
     }).then(function(data) {
-        mountedName.alignment = data.data.alignment;
-    });
-
-    $.ajax({
-        url: race_url
-    }).then(function(data) {
-        mountedName.race = data.data.race;
-    });
-
-    $.ajax({
-        url: classes_url
-    }).then(function(data) {
-        mountedClasses.classList = data.data;
+        CharacterSheet.name = data.data.name;
+        CharacterSheet.race = data.data.race;
+        CharacterSheet.alignment = data.data.alignment;
+        CharacterSheet.character_classes = data.data.classes;
     });
 }
