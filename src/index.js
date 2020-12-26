@@ -1,20 +1,18 @@
 const name = Vue.createApp({
     data() {
         return {
-            name: 'John Q Sample',
-            race: 'human',
-            alignment: 'LE',
+            name: '',
+            race: '',
+            alignment: '',
         }
     }
 })
-name.mount('#name')
+const mountedName = name.mount('#name')
 
 const classes = Vue.createApp({
     data() {
         return {
             classList: [
-                {name: "fighter", level: 5},
-                {name: "wizard", level: 2}
             ]
         }
     }
@@ -25,4 +23,35 @@ classes.component('class-list', {
     template: `<li>lvl {{ characterclass.level }} {{ characterclass.name }}</li>`
 })
 
-classes.mount('#classes')
+mountedClasses = classes.mount('#classes')
+
+function updateCharacter() {
+    var name_url = 'http://localhost:5000/api/v0/character/name';
+    var alignment_url = 'http://localhost:5000/api/v0/character/alignment';
+    var race_url = 'http://localhost:5000/api/v0/character/race';
+    var classes_url = 'http://localhost:5000/api/v0/character/classes';
+
+    $.ajax({
+        url: name_url
+    }).then(function(data) {
+        mountedName.name = data.data.name;
+    });
+
+    $.ajax({
+        url: alignment_url
+    }).then(function(data) {
+        mountedName.alignment = data.data.alignment;
+    });
+
+    $.ajax({
+        url: race_url
+    }).then(function(data) {
+        mountedName.race = data.data.race;
+    });
+
+    $.ajax({
+        url: classes_url
+    }).then(function(data) {
+        mountedClasses.classList = data.data;
+    });
+}
