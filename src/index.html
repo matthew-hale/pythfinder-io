@@ -20,9 +20,12 @@
                 <button class="tablink" onClick="openTab(event, 'equipment')">Equipment</button>
                 <button class="tablink" onClick="openTab(event, 'test')">Test</button>
             </div>
-            <equipment
-                :collection="character_data.equipment"
-            ></equipment>
+            <div class="tabcontent" id="equipment">
+                <c-table
+                    :collection="character_data.equipment"
+                    :keys="equipment_keys"
+                ></c-table>
+            </div>
             <div class="tabcontent" id="test">
                 <p>test content</p>
             </div>

@@ -39,42 +39,7 @@ const sheet = Vue.createApp({
                 spells: [],
                 attacks: [],
                 armor: []
-            }
-        }
-    }
-})
-
-sheet.component('character_classes', {
-    props: ['class_entry'],
-    template: `<li>lvl {{class_entry.level}} {{ class_entry.name }}</li>`
-})
-
-sheet.component('c-table', {
-    props: ['collection', 'columns'],
-    template: `
-        <table class="tabcontent">
-            <tr>
-            <th
-                v-for="key in columns"
-            >{{ key }}</th>
-            </tr>
-            <tr
-                v-for="item in collection"
-            >
-                <td
-                    v-for="key in columns"
-                >
-                    {{ item[key] }}
-                </td>
-            </tr>
-        </table>
-    `
-})
-
-sheet.component('equipment', {
-    props: ['collection'],
-    data() {
-        return {
+            },
             equipment_keys: [
                 ['name', 'Name'],
                 ['weight', 'Weight'],
@@ -84,19 +49,48 @@ sheet.component('equipment', {
                 ['location', 'Location']
             ]
         }
-    },
+    }
+})
+
+sheet.component('character_classes', {
+    props: ['class_entry'],
+    template: `<li>lvl {{class_entry.level}} {{ class_entry.name }}</li>`
+})
+
+/*
+Table component; takes a collection and a list of keys.
+
+The keys are structured like this:
+
+    keys: [
+        ['object_key', 'Text representation'],
+        ...
+    ]
+
+This lets you have a table header that displays a different string than 
+the object key it represents.
+*/
+sheet.component('c-table', {
+    props: ['collection', 'keys'],
     template: `
-        <div class="tabcontent" id="equipment">
-            <div class="equipment"
+        <table>
+            <tr>
+            <th
+                v-for="key in keys"
+            >
+                {{ key[1] }}
+            </th>
+            </tr>
+            <tr
                 v-for="item in collection"
             >
-                <div class="equipment_element"
-                    v-for="key in equipment_keys"
+                <td
+                    v-for="key in keys"
                 >
-                    <p>{{ key[1] }}</p><p>{{ item[key[0]] }}</p>
-                </div>
-            </div>
-        </div>
+                    {{ item[key[0]] }}
+                </td>
+            </tr>
+        </table>
     `
 })
 

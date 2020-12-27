@@ -4,18 +4,6 @@
     margin-right: 10px;
 }
 
-.equipment {
-    display: block;
-    border: 1px solid black;
-    border-top: none;
-}
-
-.equipment_element {
-    display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
 .tab {
     background-color: #11ff11;
     overflow: hidden;
