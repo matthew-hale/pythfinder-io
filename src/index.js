@@ -49,6 +49,15 @@ sheet.component('character_classes', {
     template: `<li>lvl {{class_entry.level}} {{ class_entry.name }}</li>`
 })
 
+sheet.component('equipment', {
+    props: ['piece'],
+    template: `<div>
+                   <p>{{ piece.name }}</p>
+                   <p>{{ piece.count }}</p>
+                   <p>{{ piece.weight }}</p>
+               </div>`
+})
+
 const CharacterSheet = sheet.mount('#sheet')
 
 function getName() {

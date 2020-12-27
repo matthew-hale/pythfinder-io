@@ -3,3 +3,18 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+div.equipment {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #000000;
+}
+
+div.equipment > p {
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+div.equipment:hover {
+    border-color: #ff00ff;
+}
