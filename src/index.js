@@ -52,26 +52,72 @@ sheet.component('character_classes', {
 sheet.component('c-table', {
     props: ['collection', 'columns'],
     template: `
-    <table>
-        <tr>
-        <th
-            v-for="key in columns"
-        >{{ key }}</th>
-        </tr>
-        <tr
-            v-for="item in collection"
-        >
-            <td
+        <table class="tabcontent">
+            <tr>
+            <th
                 v-for="key in columns"
+            >{{ key }}</th>
+            </tr>
+            <tr
+                v-for="item in collection"
             >
-                {{ item[key] }}
-            </td>
-        </tr>
-    </table>
+                <td
+                    v-for="key in columns"
+                >
+                    {{ item[key] }}
+                </td>
+            </tr>
+        </table>
+    `
+})
+
+sheet.component('equipment', {
+    props: ['collection'],
+    data() {
+        return {
+            equipment_keys: [
+                ['name', 'Name'],
+                ['weight', 'Weight'],
+                ['count', 'Count'],
+                ['camp', 'Camp'],
+                ['on_person', 'On person'],
+                ['location', 'Location']
+            ]
+        }
+    },
+    template: `
+        <div class="tabcontent" id="equipment">
+            <div class="equipment"
+                v-for="item in collection"
+            >
+                <div class="equipment_element"
+                    v-for="key in equipment_keys"
+                >
+                    <p>{{ key[1] }}</p><p>{{ item[key[0]] }}</p>
+                </div>
+            </div>
+        </div>
     `
 })
 
 const CharacterSheet = sheet.mount('#sheet')
+
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    // turn off display for all tabs
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    // de-activate all tab buttons
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    // set selected tab to active, and turn on display
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
 
 function getName() {
     var name_url = 'http://localhost:5000/api/v0/character/name';

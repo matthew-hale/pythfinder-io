@@ -16,11 +16,16 @@
                 v-bind:class_entry="item"
             ></character_classes>
             <p>{{ character_data.description }}</p>
-            <h3>Equipment</h3>
-            <c-table
+            <div class="tab">
+                <button class="tablink" onClick="openTab(event, 'equipment')">Equipment</button>
+                <button class="tablink" onClick="openTab(event, 'test')">Test</button>
+            </div>
+            <equipment
                 :collection="character_data.equipment"
-                :columns="['name', 'weight', 'count', 'camp', 'on_person', 'location']"
-            ></c-table>
+            ></equipment>
+            <div class="tabcontent" id="test">
+                <p>test content</p>
+            </div>
         </div>
         <script>
             $(function () {

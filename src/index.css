@@ -4,17 +4,41 @@
     margin-right: 10px;
 }
 
-div.equipment {
-    border-style: solid;
-    border-width: 2px;
-    border-color: #000000;
+.equipment {
+    display: block;
+    border: 1px solid black;
+    border-top: none;
 }
 
-div.equipment > p {
+.equipment_element {
     display: inline-block;
-    margin: 5px 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-div.equipment:hover {
-    border-color: #ff00ff;
+.tab {
+    background-color: #11ff11;
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+.tab button {
+    float: left;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+.tab button:hover {
+    background-color: #880088;
+}
+
+.tab button.active {
+    background-color: #ff00ff;
+}
+
+.tabcontent {
+    display: none;
 }
