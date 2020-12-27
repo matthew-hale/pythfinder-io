@@ -16,11 +16,11 @@
                 v-bind:class_entry="item"
             ></character_classes>
             <p>{{ character_data.description }}</p>
-            <equipment
-                class="equipment"
-                v-for="item in character_data.equipment"
-                v-bind:piece="item"
-            ></equipment>
+            <h3>Equipment</h3>
+            <c-table
+                :collection="character_data.equipment"
+                :columns="['name', 'weight', 'count', 'camp', 'on_person', 'location']"
+            ></c-table>
         </div>
         <script>
             $(function () {

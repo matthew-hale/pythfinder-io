@@ -49,13 +49,26 @@ sheet.component('character_classes', {
     template: `<li>lvl {{class_entry.level}} {{ class_entry.name }}</li>`
 })
 
-sheet.component('equipment', {
-    props: ['piece'],
-    template: `<div>
-                   <p>{{ piece.name }}</p>
-                   <p>{{ piece.count }}</p>
-                   <p>{{ piece.weight }}</p>
-               </div>`
+sheet.component('c-table', {
+    props: ['collection', 'columns'],
+    template: `
+    <table>
+        <tr>
+        <th
+            v-for="key in columns"
+        >{{ key }}</th>
+        </tr>
+        <tr
+            v-for="item in collection"
+        >
+            <td
+                v-for="key in columns"
+            >
+                {{ item[key] }}
+            </td>
+        </tr>
+    </table>
+    `
 })
 
 const CharacterSheet = sheet.mount('#sheet')
