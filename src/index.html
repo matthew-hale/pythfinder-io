@@ -8,10 +8,14 @@
     </head>
     <body>
         <div id="sheet">
-            <h1>{{ name }}</h1>
-            <h2>{{alignment}} {{ race }}</h2>
+            <character_info
+                :name="character_data.name"
+                :alignment="character_data.alignment"
+                :race="character_data.race"
+                :description="character_data.description"
+            ></character_info>
             <character_classes
-                v-for="item in character_classes"
+                v-for="item in character_data.classes"
                 v-bind:class_entry="item"
             ></character_classes>
         </div>
@@ -25,11 +29,11 @@
                 });
             });
         </script>
-        <script src="index.js"></script>
         <script>
         window.onload = function() {
             updateCharacter();
         }
         </script>
+        <script src="index.js"></script>
     </body>
 </html>
