@@ -44,14 +44,6 @@ const sheet = Vue.createApp({
     }
 })
 
-
-sheet.component('character_info', {
-    props: ['data'],
-    template: `<h1>{{ data.name }}</h1>
-               <h2>{{ data.alignment }} {{ data.race }}</h2>
-               <p>{{ data.description }}</p>`
-})
-
 sheet.component('character_classes', {
     props: ['class_entry'],
     template: `<li>lvl {{class_entry.level}} {{ class_entry.name }}</li>`

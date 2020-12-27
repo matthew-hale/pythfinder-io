@@ -8,14 +8,14 @@
     </head>
     <body>
         <div id="sheet">
-            <character_info
-                :data="character_data"
-            ></character_info>
+            <h1>{{ character_data.name }}</h1>
+            <h2>{{ character_data.alignment }} {{ character_data.race }}</h2>
             <character_classes
                 class="character_class"
                 v-for="item in character_data.classes"
                 v-bind:class_entry="item"
             ></character_classes>
+            <p>{{ character_data.description }}</p>
         </div>
         <script>
             $(function () {
