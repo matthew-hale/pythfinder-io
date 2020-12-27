@@ -9,12 +9,10 @@
     <body>
         <div id="sheet">
             <character_info
-                :name="character_data.name"
-                :alignment="character_data.alignment"
-                :race="character_data.race"
-                :description="character_data.description"
+                :data="character_data"
             ></character_info>
             <character_classes
+                class="character_class"
                 v-for="item in character_data.classes"
                 v-bind:class_entry="item"
             ></character_classes>
