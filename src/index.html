@@ -20,6 +20,10 @@
             <div class="tab">
                 <button class="tablink" onClick="openTab(event, 'equipment')">Equipment</button>
                 <button class="tablink" onClick="openTab(event, 'attacks')">Attacks</button>
+                <button class="tablink" onClick="openTab(event, 'skills')">Skills</button>
+                <button class="tablink" onClick="openTab(event, 'feats')">Feats/Traits/Special Abilities</button>
+                <button class="tablink" onClick="openTab(event, 'spells')">Spells</button>
+                <button class="tablink" onClick="openTab(event, 'armor')">Armor</button>
             </div>
             <div class="tabcontent" id="equipment">
                 <c-table
@@ -31,6 +35,41 @@
                 <c-table
                     :collection="character_data.attacks"
                     :keys="attack_keys"
+                ></c-table>
+            </div>
+            <div class="tabcontent" id="skills">
+                <c-table
+                    :collection="character_data.skills"
+                    :keys="skill_keys"
+                ></c-table>
+            </div>
+            <div class="tabcontent" id="feats">
+                <h3>Feats</h3>
+                <c-table
+                    :collection="character_data.feats"
+                    :keys="basic_item_keys"
+                ></c-table>
+                <h3>Traits</h3>
+                <c-table
+                    :collection="character_data.traits"
+                    :keys="basic_item_keys"
+                ></c-table>
+                <h3>Special abilities</h3>
+                <c-table
+                    :collection="character_data.specials"
+                    :keys="basic_item_keys"
+                ></c-table>
+            </div>
+            <div class="tabcontent" id="spells">
+                <c-table
+                    :collection="character_data.spells"
+                    :keys="spell_keys"
+                ></c-table>
+            </div>
+            <div class="tabcontent" id="armor">
+                <c-table
+                    :collection="character_data.armor"
+                    :keys="armor_keys"
                 ></c-table>
             </div>
         </div>

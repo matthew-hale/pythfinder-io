@@ -59,7 +59,37 @@ const sheet = Vue.createApp({
                 ['crit_multi', 'Crit multiplier'],
                 ['range_', 'Range'],
                 ['misc', 'Attack modifiers'],
+                ['notes', 'Notes'],
             ],
+            skill_keys: [
+                ['name', 'Name'],
+                ['is_class', 'Class skill'],
+                ['use_untrained', 'Use untrained'],
+                ['rank', 'Ranks'],
+                ['mod', 'Ability modifier'],
+                ['misc', 'Modifiers'],
+                ['notes', 'Notes'],
+            ],
+            basic_item_keys: [
+                ['name', 'Name'],
+                ['description', 'Description'],
+                ['notes', 'Notes'],
+            ],
+            spell_keys: [
+                ['name', 'Name'],
+                ['level', 'Level'],
+                ['description', 'Description'],
+                ['cast', 'Cast'],
+                ['prepared', 'Prepared'],
+            ],
+            armor_keys: [
+                ['name', 'Name'],
+                ['ac_bonus', 'AC bonus'],
+                ['ac_penalty', 'Armor check penalty'],
+                ['max_dex_bonus', 'Max. dex bonus'],
+                ['arcane_failure_chance', 'Arcane failure chance %'],
+                ['type_', 'Armor type'],
+            ]
         }
     }
 })
