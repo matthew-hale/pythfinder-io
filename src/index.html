@@ -3,6 +3,7 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="https://unpkg.com/vue@next"></script>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" crossorigin="anonymous">
         <link rel="stylesheet" href="index.css">
     <title>pythfinder.io</title>
     </head>
@@ -16,14 +17,14 @@
                 v-bind:class_entry="item"
             ></character_classes>
             <p>{{ character_data.description }}</p>
-            <button onClick="updateCharacter()">Update</button>
-            <div class="tab">
-                <button class="tablink" onClick="openTab(event, 'equipment')">Equipment</button>
-                <button class="tablink" onClick="openTab(event, 'attacks')">Attacks</button>
-                <button class="tablink" onClick="openTab(event, 'skills')">Skills</button>
-                <button class="tablink" onClick="openTab(event, 'feats')">Feats/Traits/Special Abilities</button>
-                <button class="tablink" onClick="openTab(event, 'spells')">Spells</button>
-                <button class="tablink" onClick="openTab(event, 'armor')">Armor</button>
+            <button class="pure-button pure-button-primary" onClick="updateCharacter()">Update</button>
+            <div class="pure-button-group" role="group">
+                <button class="tablink pure-button" onClick="openTab(event, 'equipment')">Equipment</button>
+                <button class="tablink pure-button" onClick="openTab(event, 'attacks')">Attacks</button>
+                <button class="tablink pure-button" onClick="openTab(event, 'skills')">Skills</button>
+                <button class="tablink pure-button" onClick="openTab(event, 'feats')">Feats/Traits/Special Abilities</button>
+                <button class="tablink pure-button" onClick="openTab(event, 'spells')">Spells</button>
+                <button class="tablink pure-button" onClick="openTab(event, 'armor')">Armor</button>
             </div>
             <div class="tabcontent" id="equipment">
                 <c-table

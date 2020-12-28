@@ -4,29 +4,6 @@
     margin-right: 10px;
 }
 
-.tab {
-    background-color: #11ff11;
-    overflow: hidden;
-    border: 1px solid black;
-}
-
-.tab button {
-    float: left;
-    background-color: inherit;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 10px 15px;
-}
-
-.tab button:hover {
-    background-color: #880088;
-}
-
-.tab button.active {
-    background-color: #ff00ff;
-}
-
 .tabcontent {
     display: none;
 }

@@ -115,23 +115,27 @@ the object key it represents.
 sheet.component('c-table', {
     props: ['collection', 'keys'],
     template: `
-        <table>
-            <tr>
-            <th
-                v-for="key in keys"
-            >
-                {{ key[1] }}
-            </th>
-            </tr>
-            <tr
-                v-for="item in collection"
-            >
-                <td
-                    v-for="key in keys"
+        <table class="pure-table pure-table-bordered">
+            <thead>
+                <tr>
+                    <th
+                        v-for="key in keys"
+                    >
+                        {{ key[1] }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    v-for="item in collection"
                 >
-                    {{ item[key[0]] }}
-                </td>
-            </tr>
+                    <td
+                        v-for="key in keys"
+                    >
+                        {{ item[key[0]] }}
+                    </td>
+                </tr>
+            </tbody>
         </table>
     `
 })
@@ -148,11 +152,11 @@ function openTab(evt, tabName) {
     // de-activate all tab buttons
     tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace(" pure-button-active", "");
     }
     // set selected tab to active, and turn on display
     document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+    evt.currentTarget.className += " pure-button-active";
 }
 
 function getName() {
