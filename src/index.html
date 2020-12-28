@@ -19,7 +19,7 @@
             <button onClick="updateCharacter()">Update</button>
             <div class="tab">
                 <button class="tablink" onClick="openTab(event, 'equipment')">Equipment</button>
-                <button class="tablink" onClick="openTab(event, 'test')">Test</button>
+                <button class="tablink" onClick="openTab(event, 'attacks')">Attacks</button>
             </div>
             <div class="tabcontent" id="equipment">
                 <c-table
@@ -27,8 +27,11 @@
                     :keys="equipment_keys"
                 ></c-table>
             </div>
-            <div class="tabcontent" id="test">
-                <p>test content</p>
+            <div class="tabcontent" id="attacks">
+                <c-table
+                    :collection="character_data.attacks"
+                    :keys="attack_keys"
+                ></c-table>
             </div>
         </div>
         <script>

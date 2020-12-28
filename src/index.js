@@ -47,7 +47,19 @@ const sheet = Vue.createApp({
                 ['camp', 'Camp'],
                 ['on_person', 'On person'],
                 ['location', 'Location']
-            ]
+            ],
+            attack_keys: [
+                ['name', 'Name'],
+                ['attack_type', 'Attack type'],
+                ['damage_type', 'Damage type'],
+                ['attack_mod', 'Attack mod'],
+                ['damage_mod', 'Damage mod'],
+                ['damage', 'Damage'],
+                ['crit_roll', 'Crit roll'],
+                ['crit_multi', 'Crit multiplier'],
+                ['range_', 'Range'],
+                ['misc', 'Attack modifiers'],
+            ],
         }
     }
 })
