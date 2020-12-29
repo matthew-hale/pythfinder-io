@@ -19,32 +19,32 @@
             <p>{{ character_data.description }}</p>
             <button class="pure-button pure-button-primary" onClick="updateCharacter()">Update</button>
             <div class="pure-button-group" role="group">
-                <button class="tablink pure-button" onClick="openTab(event, 'equipment')">Equipment</button>
+                <button class="tablink pure-button pure-button-active" onClick="openTab(event, 'equipment')">Equipment</button>
                 <button class="tablink pure-button" onClick="openTab(event, 'attacks')">Attacks</button>
                 <button class="tablink pure-button" onClick="openTab(event, 'skills')">Skills</button>
                 <button class="tablink pure-button" onClick="openTab(event, 'feats')">Feats/Traits/Special Abilities</button>
                 <button class="tablink pure-button" onClick="openTab(event, 'spells')">Spells</button>
                 <button class="tablink pure-button" onClick="openTab(event, 'armor')">Armor</button>
             </div>
-            <div class="tabcontent" id="equipment">
+            <template v-if="active_tab === 'equipment'" id="equipment">
                 <c-table
                     :collection="character_data.equipment"
                     :keys="equipment_keys"
                 ></c-table>
-            </div>
-            <div class="tabcontent" id="attacks">
+            </template>
+            <template v-if="active_tab === 'attacks'" id="attacks">
                 <c-table
                     :collection="character_data.attacks"
                     :keys="attack_keys"
                 ></c-table>
-            </div>
-            <div class="tabcontent" id="skills">
+            </template>
+            <template v-if="active_tab === 'skills'" id="skills">
                 <c-table
                     :collection="character_data.skills"
                     :keys="skill_keys"
                 ></c-table>
-            </div>
-            <div class="tabcontent" id="feats">
+            </template>
+            <template v-if="active_tab === 'feats'" id="feats">
                 <h3>Feats</h3>
                 <c-table
                     :collection="character_data.feats"
@@ -60,19 +60,19 @@
                     :collection="character_data.specials"
                     :keys="basic_item_keys"
                 ></c-table>
-            </div>
-            <div class="tabcontent" id="spells">
+            </template>
+            <template v-if="active_tab === 'spells'" id="spells">
                 <c-table
                     :collection="character_data.spells"
                     :keys="spell_keys"
                 ></c-table>
-            </div>
-            <div class="tabcontent" id="armor">
+            </template>
+            <template v-if="active_tab === 'armor'" id="armor">
                 <c-table
                     :collection="character_data.armor"
                     :keys="armor_keys"
                 ></c-table>
-            </div>
+            </template>
         </div>
         <script>
             $(function () {

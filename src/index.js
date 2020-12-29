@@ -40,6 +40,7 @@ const sheet = Vue.createApp({
                 attacks: [],
                 armor: []
             },
+            active_tab: "equipment",
             equipment_keys: [
                 ['name', 'Name'],
                 ['weight', 'Weight'],
@@ -143,19 +144,12 @@ sheet.component('c-table', {
 const CharacterSheet = sheet.mount('#sheet')
 
 function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    // turn off display for all tabs
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    // de-activate all tab buttons
-    tablinks = document.getElementsByClassName("tablink");
+    var i, tablinks
+    tablinks = document.getElementsByClassName("tablink")
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" pure-button-active", "");
+        tablinks[i].className = tablinks[i].className.replace(" pure-button-active", ""); 
     }
-    // set selected tab to active, and turn on display
-    document.getElementById(tabName).style.display = "block";
+    CharacterSheet.active_tab = tabName;
     evt.currentTarget.className += " pure-button-active";
 }
 
